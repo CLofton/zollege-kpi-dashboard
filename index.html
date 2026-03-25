@@ -191,6 +191,46 @@ table.sc { width: 100%; border-collapse: collapse; font-size: 11px; }
 @media (max-width:1100px) { .r3-grid{grid-template-columns:repeat(3,1fr);} .g8{grid-template-columns:repeat(4,1fr);} .cc3{grid-template-columns:1fr 1fr;} .funnel-row{grid-template-columns:1fr;} }
 @media (max-width:800px)  { .main{padding:1rem;} .g4{grid-template-columns:1fr 1fr;} .cc2,.cc3{grid-template-columns:1fr;} .r3-grid{grid-template-columns:repeat(2,1fr);} .oc-grid{grid-template-columns:1fr;} }
 @media (max-width:500px)  { .g4,.g8{grid-template-columns:1fr 1fr;} }
+
+/* ── MARKETING: CHANNEL TAGS ── */
+.ch-tag { display:inline-block; font-size:9px; font-weight:700; padding:2px 7px; border-radius:10px; letter-spacing:0.4px; white-space:nowrap; }
+.ch-seo { background:rgba(46,125,50,0.12); color:#2e7d32; }
+.ch-int { background:rgba(2,136,209,0.12); color:#0288D1; }
+.ch-ps  { background:rgba(21,101,192,0.12); color:#1565C0; }
+.ch-soc { background:rgba(123,31,162,0.12); color:#7B1FA2; }
+
+/* ── MARKETING: SCENARIO BADGES ── */
+.sc-badge { font-size:9px; font-weight:700; padding:2px 8px; border-radius:4px; letter-spacing:0.4px; display:inline-block; }
+.sc-commit  { background:rgba(21,101,192,0.1);  color:#1565C0; border:1px solid rgba(21,101,192,0.25); }
+.sc-stretch { background:rgba(123,31,162,0.1);  color:#7B1FA2; border:1px solid rgba(123,31,162,0.25); }
+.sc-actual  { background:rgba(46,125,50,0.1);   color:#2e7d32; border:1px solid rgba(46,125,50,0.25); }
+
+/* ── MARKETING: CHANNEL TABLE ── */
+.ch-table { width:100%; border-collapse:collapse; font-size:11px; }
+.ch-table th { font-family:'Barlow Condensed',sans-serif; font-size:9px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--muted2); padding:5px 8px; text-align:right; border-bottom:1px solid var(--border2); }
+.ch-table th:first-child { text-align:left; }
+.ch-table td { padding:6px 8px; border-bottom:1px solid var(--border); text-align:right; }
+.ch-table td:first-child { text-align:left; }
+.ch-table tr:last-child td { border-bottom:none; }
+.ch-table .ch-num { font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:600; color:var(--navy); }
+.ch-table .ch-sub { font-size:9px; color:var(--muted2); display:block; margin-top:1px; }
+
+/* ── MARKETING: HERO BAND ── */
+.m-hero { background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%); border-radius:10px; padding:1rem 1.5rem; margin-bottom:1.25rem; box-shadow:var(--shadow-lg); }
+.m-hero-head { display:flex; align-items:baseline; justify-content:space-between; margin-bottom:0.9rem; }
+.m-hero-title { font-family:'Barlow Condensed',sans-serif; font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.45); }
+.m-hero-sub { font-size:11px; color:var(--sky); font-weight:500; }
+.m-hero-grid { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:0; }
+.m-hero-item { text-align:center; padding:0 0.75rem; border-right:1px solid rgba(255,255,255,0.09); }
+.m-hero-item:last-child { border-right:none; }
+.m-hero-lbl { font-size:9px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:4px; }
+.m-hero-val { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700; color:#fff; line-height:1; }
+.m-hero-vs { font-size:10px; margin-top:3px; font-weight:600; }
+.m-hero-vs.up { color:#81c784; }
+.m-hero-vs.dn { color:#ef9a9a; }
+.m-hero-sub2 { font-size:9px; color:rgba(255,255,255,0.3); margin-top:1px; }
+@media (max-width:1100px) { .m-hero-grid{grid-template-columns:repeat(3,1fr);} }
+@media (max-width:600px)  { .m-hero-grid{grid-template-columns:repeat(2,1fr);} }
 </style>
 </head>
 <body>
@@ -238,6 +278,7 @@ table.sc { width: 100%; border-collapse: collapse; font-size: 11px; }
         <button class="pbtn active" id="vSingle" onclick="setView('single')">Single</button>
         <button class="pbtn" id="vTrend"  onclick="setView('trend')">Trends</button>
         <button class="pbtn" id="vTable"  onclick="setView('table')">Table</button>
+        <button class="pbtn" id="vMktg"   onclick="setView('mktg')">Marketing</button>
       </div>
     </div>
   </div>
@@ -266,6 +307,51 @@ const D = {
   'Jan 2026':{ leads:{a:11702,b:10837,py:7280}, lte:{a:9.9,b:10.4,py:10.2}, enrollments:{a:1163,b:1123,py:739}, bookings:{a:4464,b:3676,py:2822}, asp:{a:3839,b:3273,py:3693}, efs:{a:1597,b:1107,py:708}, ets:{a:86.8,b:90.6,py:84.9}, starts:{a:1386,b:1003,py:601}, activeSchools:{a:222,b:200,py:129}, classWeeks:{a:5,b:5,py:4}, capacity:{a:2859,b:null,py:null}, classStarts:{a:158,b:172,py:87}, studPerClass:{a:6.9,b:5.8,py:6.9}, capUtil:{a:48.5,b:44.4,py:39.0}, completion:{a:84.8,b:89.8,py:82.8}, etc:{a:73.6,b:81.4,py:70.3} },
   'Feb 2026':{ leads:{a:9210,b:9527,py:5555}, lte:{a:13.5,b:10.4,py:13.5}, enrollments:{a:1067,b:990,py:749}, bookings:{a:4117,b:3189,py:2898}, asp:{a:3858,b:3221,py:3869}, efs:{a:875,b:620,py:630}, ets:{a:86.2,b:90.6,py:90.0}, starts:{a:754,b:560,py:568}, activeSchools:{a:237,b:211,py:129}, classWeeks:{a:4,b:4,py:4}, capacity:{a:237,b:211,py:129}, classStarts:{a:87,b:93,py:70}, studPerClass:{a:8.7,b:6.0,py:8.1}, capUtil:{a:48.8,b:48.0,py:44.0}, completion:{a:84.8,b:89.8,py:78.9}, etc:{a:73.1,b:81.2,py:71.1} }
 };
+
+// ─── MARKETING DATA (2026) ────────────────────────────────────────────────────
+const MMONTHS = ['Jan 2026','Feb 2026','Mar 2026','Apr 2026','May 2026','Jun 2026','Jul 2026','Aug 2026','Sep 2026','Oct 2026','Nov 2026','Dec 2026'];
+const MSHORT  = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+// 2026 actuals (Jan + Feb only)
+const MACT = {
+  'Jan 2026':{ leads:11670,seo:5023,int:919, ps:2110,soc:4537,apps:5033,enrolls:1160,seoE:734,intE:111,psE:210,socE:105,lte:9.94, lta:43.13,ate:23.05,spend:509819,cpl:43.69,cpe:439.5,traffic:366491 },
+  'Feb 2026':{ leads:9274, seo:4212,int:845, ps:1348,soc:3714,apps:4318,enrolls:1066,seoE:642,intE:107,psE:214,socE:103,lte:11.49,lta:46.56,ate:24.69,spend:526478,cpl:56.77,cpe:493.9,traffic:306436 }
+};
+
+// 2026 Commit budget (all 12 months)
+const MC26 = [
+  { leads:9634, seo:3222,int:561, ps:2655,soc:3196,enrolls:1124,seoE:652,intE:101,psE:292,socE:79, lte:10.15,spend:455500,cpl:47.28,cpe:405.25,traffic:186550  },
+  { leads:9618, seo:3588,int:510, ps:2520,soc:3000,enrolls:990, seoE:574,intE:89, psE:257,socE:69, lte:9.40, spend:443500,cpl:46.11,cpe:447.98,traffic:461136  },
+  { leads:8948, seo:3147,int:602, ps:2373,soc:2826,enrolls:930,                             lte:11.00,spend:427100,cpl:47.73,cpe:459.25,traffic:431805  },
+  { leads:6963, seo:2688,int:486, ps:1693,soc:2096,enrolls:903,                             lte:12.59,spend:446300,cpl:64.10,cpe:494.24,traffic:324736  },
+  { leads:10928,seo:3971,int:519, ps:2685,soc:3753,enrolls:1226,                            lte:11.92,spend:538800,cpl:49.30,cpe:439.48,traffic:531245  },
+  { leads:10481,seo:3180,int:718, ps:3416,soc:3167,enrolls:1164,                            lte:12.28,spend:520500,cpl:49.66,cpe:447.16,traffic:527458  },
+  { leads:9615, seo:3378,int:516, ps:3354,soc:2367,enrolls:1263,                            lte:12.94,spend:575200,cpl:59.82,cpe:455.42,traffic:469900  },
+  { leads:14002,seo:4887,int:944, ps:4500,soc:3671,enrolls:1705,                            lte:11.96,spend:701300,cpl:50.09,cpe:411.32,traffic:677256  },
+  { leads:11942,seo:4241,int:920, ps:3238,soc:3543,enrolls:1364,                            lte:11.07,spend:604500,cpl:50.62,cpe:443.18,traffic:569362  },
+  { leads:12267,seo:4801,int:1305,ps:2509,soc:3652,enrolls:1464,                            lte:11.41,spend:687000,cpl:56.00,cpe:469.26,traffic:549506  },
+  { leads:9664, seo:3782,int:1022,ps:1974,soc:2886,enrolls:1015,                            lte:10.05,spend:559300,cpl:57.87,cpe:551.03,traffic:433182  },
+  { leads:10787,seo:4225,int:1145,ps:2206,soc:3211,enrolls:1134,                            lte:10.05,spend:592900,cpl:54.96,cpe:522.84,traffic:483178  }
+];
+
+// 2026 Stretch budget (all 12 months)
+const MS26 = [
+  { leads:9443, seo:3468,int:727, ps:2625,soc:2623,enrolls:1211,lte:12.94,spend:566525,cpl:60.00,cpe:467.82,traffic:221200  },
+  { leads:9064, seo:3358,int:437, ps:2555,soc:2714,enrolls:1082,lte:11.57,spend:563408,cpl:62.16,cpe:520.71,traffic:437517  },
+  { leads:9626, seo:3673,int:503, ps:2410,soc:3040,enrolls:1085,lte:11.13,spend:564375,cpl:58.63,cpe:520.16,traffic:458242  },
+  { leads:8737, seo:3370,int:612, ps:2126,soc:2629,enrolls:1133,lte:12.59,spend:613073,cpl:70.17,cpe:541.11,traffic:407500  },
+  { leads:14395,seo:5239,int:689, ps:3535,soc:4932,enrolls:1617,lte:11.92,spend:777870,cpl:54.04,cpe:481.06,traffic:699194  },
+  { leads:14130,seo:4277,int:964, ps:4589,soc:4300,enrolls:1566,lte:12.28,spend:761423,cpl:53.89,cpe:486.22,traffic:711714  },
+  { leads:12489,seo:4374,int:665, ps:4356,soc:3094,enrolls:1637,lte:12.94,spend:818505,cpl:65.54,cpe:500.00,traffic:611190  },
+  { leads:17199,seo:5857,int:1179,ps:5598,soc:4565,enrolls:2121,lte:12.57,spend:982013,cpl:57.10,cpe:463.00,traffic:837442  },
+  { leads:15730,seo:5577,int:1205,ps:4250,soc:4698,enrolls:1793,lte:11.07,spend:871395,cpl:55.40,cpe:486.00,traffic:750669  },
+  { leads:16305,seo:6379,int:1731,ps:3326,soc:4869,enrolls:1944,lte:11.41,spend:986528,cpl:60.50,cpe:507.47,traffic:730651  },
+  { leads:12903,seo:5040,int:1370,ps:2632,soc:3861,enrolls:1354,lte:10.05,spend:785610,cpl:60.89,cpe:580.21,traffic:578549  },
+  { leads:14597,seo:5714,int:1550,ps:2984,soc:4349,enrolls:1535,lte:10.05,spend:846563,cpl:58.00,cpe:551.51,traffic:653958  }
+];
+
+// 2025 annual marketing reference (from 2025 Marketing KPIs)
+const MREF25 = { leads:82393, apps:32298, enrolls:9784, spend:3612924, cpl:43.8, cpe:369, lte:11.9 };
 
 // ─── STATE ───────────────────────────────────────────────────────────────────
 let sel = [...MONTHS];
@@ -704,6 +790,221 @@ function renderTable(months){
   `;
 }
 
+// ─── MARKETING VIEW ──────────────────────────────────────────────────────────
+function renderMarketing() {
+  const fDol  = v => v==null?'—':'$'+Math.round(v).toLocaleString();
+  const fM    = v => v==null?'—':'$'+(v/1000000).toFixed(2)+'M';
+  const fMsmall = v => v==null?'—':v>=1000000?'$'+(v/1000000).toFixed(2)+'M':v>=1000?'$'+(v/1000).toFixed(0)+'k':'$'+Math.round(v);
+
+  // YTD Jan+Feb actuals vs commit
+  const jan = MACT['Jan 2026'], feb = MACT['Feb 2026'];
+  const janC = MC26[0], febC = MC26[1];
+  const ytdL = jan.leads + feb.leads, ytdLC = janC.leads + febC.leads;
+  const ytdE = jan.enrolls + feb.enrolls, ytdEC = janC.enrolls + febC.enrolls;
+  const ytdSp = jan.spend + feb.spend, ytdSpC = janC.spend + febC.spend;
+  const ytdCpl = ytdSp / ytdL, ytdCplC = ytdSpC / ytdLC;
+  const ytdCpe = ytdSp / ytdE, ytdCpeC = ytdSpC / ytdEC;
+  const ytdLte = (jan.lte + feb.lte) / 2, ytdLteC = (janC.lte + febC.lte) / 2;
+
+  const heroMetrics = [
+    { label:'Leads',       a:ytdL,    c:ytdLC,   fmt:fN,     hi:true  },
+    { label:'Enrollments', a:ytdE,    c:ytdEC,   fmt:fN,     hi:true  },
+    { label:'Spend',       a:ytdSp,   c:ytdSpC,  fmt:fMsmall,hi:false },
+    { label:'CPL',         a:ytdCpl,  c:ytdCplC, fmt:v=>'$'+v.toFixed(2), hi:false },
+    { label:'CPE',         a:ytdCpe,  c:ytdCpeC, fmt:v=>'$'+Math.round(v), hi:false },
+    { label:'LTE avg',     a:ytdLte,  c:ytdLteC, fmt:fP,     hi:true  },
+  ];
+
+  const heroHTML = heroMetrics.map(({label,a,c,fmt,hi}) => {
+    const pct = c ? Math.round((a/c)*100) : null;
+    const good = hi ? (a >= c) : (a <= c);
+    const dir = a > c ? 'up' : a < c ? 'dn' : 'fl';
+    const displayDir = hi ? dir : (dir==='up'?'dn':dir==='dn'?'up':'fl');
+    const diff = a - c;
+    const diffStr = (diff >= 0 ? '+' : '') + (fmt===fP ? diff.toFixed(1)+'%' : fmt(Math.abs(diff)));
+    return `<div class="m-hero-item">
+      <div class="m-hero-lbl">${label}</div>
+      <div class="m-hero-val">${fmt(a)}</div>
+      <div class="m-hero-vs ${displayDir}">${diff>=0?'▲':'▼'} ${fmt===fP?Math.abs(diff).toFixed(1)+'%':fmt(Math.abs(diff))} vs commit</div>
+      <div class="m-hero-sub2">${pct!=null?pct+'% of commit':''}</div>
+    </div>`;
+  }).join('');
+
+  // Channel performance table (Jan + Feb)
+  const channels = [
+    { key:'seo', eKey:'seoE', label:'SEO (Organic)',   cls:'ch-seo', color:'#2e7d32' },
+    { key:'int', eKey:'intE', label:'Internal',         cls:'ch-int', color:'#0288D1' },
+    { key:'ps',  eKey:'psE',  label:'Paid Search',      cls:'ch-ps',  color:'#1565C0' },
+    { key:'soc', eKey:'socE', label:'Paid Social',      cls:'ch-soc', color:'#7B1FA2' },
+  ];
+
+  const chTableRows = channels.map(ch => {
+    const jL=jan[ch.key], fL=feb[ch.key];
+    const jE=jan[ch.eKey]||0, fE=feb[ch.eKey]||0;
+    const jLte=(jL?jE/jL*100:0), fLte=(fL?fE/fL*100:0);
+    const jLC=janC[ch.key]||0, fLC=febC[ch.key]||0;
+    const jEC=janC[ch.eKey]||0, fEC=febC[ch.eKey]||0;
+    const ytdL2=jL+fL, ytdE2=jE+fE, ytdLte2=(ytdL2?ytdE2/ytdL2*100:0);
+    const jtdLC2=jLC+fLC, ytdEC2=jEC+fEC;
+    const pctL=jtdLC2?Math.round(ytdL2/jtdLC2*100):null;
+    const pctE=ytdEC2?Math.round(ytdE2/ytdEC2*100):null;
+    const lDir = pctL!=null?(pctL>=95?'up':pctL>=80?'fl':'dn'):'fl';
+    const eDir = pctE!=null?(pctE>=95?'up':pctE>=80?'fl':'dn'):'fl';
+    const lteDir = (ytdLte2>=ytdLteC*0.95)?'up':'dn';
+    const ytdLteC2 = ch.key==='seo' ? (20.24+16.0)/2 : ch.key==='int' ? (18.0+17.4)/2 : ch.key==='ps' ? (11.0+10.2)/2 : (2.47+2.30)/2;
+    return `<tr>
+      <td><span class="ch-tag ${ch.cls}">${ch.label}</span></td>
+      <td><span class="ch-num">${fN(jL)}</span></td>
+      <td><span class="ch-num">${fN(fL)}</span></td>
+      <td><span class="ch-num" style="color:${lDir==='up'?'#2e7d32':lDir==='dn'?'#c62828':'#607d9a'}">${fN(ytdL2)}</span><span class="ch-sub">${pctL!=null?pctL+'% of commit':''}</span></td>
+      <td><span class="ch-num">${fN(jE)}</span></td>
+      <td><span class="ch-num">${fN(fE)}</span></td>
+      <td><span class="ch-num" style="color:${eDir==='up'?'#2e7d32':eDir==='dn'?'#c62828':'#607d9a'}">${fN(ytdE2)}</span><span class="ch-sub">${pctE!=null?pctE+'% of commit':''}</span></td>
+      <td><span class="ch-num" style="color:${lteDir==='up'?'#2e7d32':'#c62828'}">${ytdLte2.toFixed(1)}%</span><span class="ch-sub">bgt ${ytdLteC2.toFixed(1)}%</span></td>
+    </tr>`;
+  }).join('');
+
+  // Spend breakdown
+  const spendBreakdown = [
+    { label:'Paid Search',       jan: 264656, feb: 292394, janC: 233600, febC: 205600 },
+    { label:'Paid Social Perf.', jan: 73710,  feb: 68032,  janC: 86900,  febC: 75900  },
+    { label:'Awareness/Brand',   jan: 171454, feb: 156965, janC: 135000, febC: 162000 },
+    { label:'TikTok',            jan: 16658,  feb: 9087,   janC: 0,      febC: 0      },
+  ];
+
+  const spendRows = spendBreakdown.map(s => {
+    const ytdA2=s.jan+s.feb, ytdC2=s.janC+s.febC;
+    const pct=ytdC2>0?Math.round(ytdA2/ytdC2*100):null;
+    const dir=pct!=null?(pct<=105?'up':pct<=125?'fl':'dn'):'fl';
+    return `<tr>
+      <td>${s.label}</td>
+      <td><span class="ch-num">${fMsmall(s.jan)}</span></td>
+      <td><span class="ch-num">${fMsmall(s.feb)}</span></td>
+      <td><span class="ch-num" style="color:${dir==='up'?'#2e7d32':dir==='dn'?'#c62828':'#607d9a'}">${fMsmall(ytdA2)}</span><span class="ch-sub">${pct!=null?pct+'% of commit':''}</span></td>
+      <td><span class="ch-num" style="color:var(--muted2)">${fMsmall(ytdC2)}</span></td>
+    </tr>`;
+  }).join('');
+
+  // 2025 reference metrics
+  const ref25 = [
+    { label:'Total Leads',  val:MREF25.leads,  fmt:fN },
+    { label:'Apps',         val:MREF25.apps,   fmt:fN },
+    { label:'Enrollments',  val:MREF25.enrolls,fmt:fN },
+    { label:'Total Spend',  val:MREF25.spend,  fmt:fM },
+    { label:'Avg CPL',      val:MREF25.cpl,    fmt:v=>'$'+v.toFixed(2) },
+    { label:'Avg CPE',      val:MREF25.cpe,    fmt:v=>'$'+Math.round(v) },
+    { label:'Avg LTE',      val:MREF25.lte,    fmt:fP },
+  ];
+
+  const ref25HTML = ref25.map(r => `
+    <div style="text-align:center;padding:0 0.75rem;border-right:1px solid var(--border2)">
+      <div style="font-size:9px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--muted2);margin-bottom:4px">${r.label}</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;color:var(--navy)">${r.fmt(r.val)}</div>
+    </div>`).join('');
+
+  return `
+    <div class="m-hero anim">
+      <div class="m-hero-head">
+        <span class="m-hero-title">2026 Marketing YTD — Jan + Feb</span>
+        <span class="m-hero-sub">Actual vs Commit Budget · 2 months</span>
+      </div>
+      <div class="m-hero-grid">${heroHTML}</div>
+    </div>
+
+    <div class="sec"><div class="sec-line"></div><div class="sec-title">Channel Performance — Jan &amp; Feb 2026</div><div class="sec-line"></div></div>
+    <div class="ccards cc2">
+      <div class="ccard">
+        <div class="ccard-title">Leads by Channel</div>
+        <div class="ccard-sub">Actual (solid) vs Commit Budget (faded) · Jan &amp; Feb 2026</div>
+        <div class="clegend">
+          <span class="leg"><span class="leg-sq" style="background:#2e7d32"></span>SEO</span>
+          <span class="leg"><span class="leg-sq" style="background:#0288D1"></span>Internal</span>
+          <span class="leg"><span class="leg-sq" style="background:#1565C0"></span>Paid Search</span>
+          <span class="leg"><span class="leg-sq" style="background:#7B1FA2"></span>Paid Social</span>
+        </div>
+        <div style="position:relative;height:200px"><canvas id="mChMix"></canvas></div>
+      </div>
+      <div class="ccard">
+        <div class="ccard-title">Channel Funnel — YTD Jan + Feb 2026</div>
+        <div class="ccard-sub">Leads / Enrollments / LTE% by channel · vs Commit Budget</div>
+        <div style="overflow-x:auto">
+          <table class="ch-table">
+            <thead><tr>
+              <th>Channel</th>
+              <th>Jan Leads</th><th>Feb Leads</th><th>YTD Leads</th>
+              <th>Jan Enroll</th><th>Feb Enroll</th><th>YTD Enroll</th>
+              <th>YTD LTE</th>
+            </tr></thead>
+            <tbody>${chTableRows}</tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec"><div class="sec-line"></div><div class="sec-title">Spend &amp; Efficiency — Jan + Feb 2026</div><div class="sec-line"></div></div>
+    <div class="ccards cc2" style="margin-bottom:9px">
+      <div class="ccard">
+        <div class="ccard-title">CPL &amp; CPE — Actual vs Budget</div>
+        <div class="ccard-sub">Monthly actual (line) vs Commit Budget (dashed) vs Stretch Budget (dotted)</div>
+        <div style="position:relative;height:185px"><canvas id="mCplCpe"></canvas></div>
+      </div>
+      <div class="ccard">
+        <div class="ccard-title">Spend Breakdown by Type — YTD</div>
+        <div class="ccard-sub">Jan + Feb 2026 actual vs Commit Budget by spend category</div>
+        <div style="overflow-x:auto">
+          <table class="ch-table">
+            <thead><tr><th>Type</th><th>Jan Actual</th><th>Feb Actual</th><th>YTD Actual</th><th>YTD Commit</th></tr></thead>
+            <tbody>
+              ${spendRows}
+              <tr style="background:var(--off)">
+                <td><strong>Total</strong></td>
+                <td><span class="ch-num">${fMsmall(jan.spend)}</span></td>
+                <td><span class="ch-num">${fMsmall(feb.spend)}</span></td>
+                <td><span class="ch-num" style="color:#c62828">${fMsmall(ytdSp)}</span><span class="ch-sub">${Math.round(ytdSp/ytdSpC*100)}% of commit</span></td>
+                <td><span class="ch-num" style="color:var(--muted2)">${fMsmall(ytdSpC)}</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec"><div class="sec-line"></div><div class="sec-title">2026 Full Year Plan — Commit vs Stretch Budget</div><div class="sec-line"></div></div>
+    <div class="ccards cc2">
+      <div class="ccard">
+        <div class="ccard-title">Monthly Leads — Commit vs Stretch vs Actual</div>
+        <div class="clegend">
+          <span class="leg"><span class="leg-sq" style="background:#1565C0"></span>Commit Budget</span>
+          <span class="leg"><span class="leg-sq" style="background:#7B1FA2"></span>Stretch Budget</span>
+          <span class="leg"><span class="leg-sq" style="background:#2e7d32;border-radius:50%"></span>Actual</span>
+        </div>
+        <div style="position:relative;height:200px"><canvas id="mPlanLeads"></canvas></div>
+      </div>
+      <div class="ccard">
+        <div class="ccard-title">Monthly Enrollments &amp; Spend — Commit Budget</div>
+        <div class="clegend">
+          <span class="leg"><span class="leg-sq" style="background:#1565C0"></span>Commit Enrollments</span>
+          <span class="leg"><span class="leg-sq" style="background:#f57c00"></span>Commit Spend ($k)</span>
+          <span class="leg"><span class="leg-sq" style="background:#2e7d32;border-radius:50%"></span>Actual</span>
+        </div>
+        <div style="position:relative;height:200px"><canvas id="mPlanEnroll"></canvas></div>
+      </div>
+    </div>
+
+    <div class="sec"><div class="sec-line"></div><div class="sec-title">2025 Annual Marketing Reference</div><div class="sec-line"></div></div>
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:9px;padding:1rem 1.5rem;box-shadow:var(--shadow)">
+      <div style="font-size:9px;color:var(--muted2);margin-bottom:12px">Full year 2025 actuals · Source: 2025 Marketing KPIs</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0">${ref25HTML}
+        <div style="flex:1;text-align:center;padding:0 0.75rem">
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--muted2);margin-bottom:4px">2025→2026 Lead Growth</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;color:#1565C0">+${Math.round((MC26.reduce((s,m)=>s+m.leads,0)/MREF25.leads-1)*100)}%</div>
+          <div style="font-size:9px;color:var(--muted2)">Commit plan vs 2025 actual</div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 // ─── CHART RENDERING ─────────────────────────────────────────────────────────
 function renderCharts(months){
   const act = key => months.map(m => D[m][key]?.a ?? null);
@@ -712,6 +1013,68 @@ function renderCharts(months){
   const lo = (mn,mx,pct) => ({ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
     scales:{ x:{grid:{display:false},ticks:{font:{size:10},color:'#607d9a'}},
              y:{grid:{color:'rgba(0,0,0,0.05)'},ticks:{font:{size:10},color:'#607d9a',callback:v=>pct?v+'%':v.toLocaleString()}, ...(mn!=null?{min:mn}:{}), ...(mx!=null?{max:mx}:{}) } } });
+
+  if(view==='mktg'){ // marketing charts block moved here (inside renderCharts)
+    const jan = MACT['Jan 2026'], feb = MACT['Feb 2026'];
+    const janC = MC26[0], febC = MC26[1];
+    const chLabels = ['SEO','Internal','Paid Search','Paid Social'];
+    const chColors    = ['#2e7d32','#0288D1','#1565C0','#7B1FA2'];
+    const chColorsFade= ['rgba(46,125,50,0.25)','rgba(2,136,209,0.25)','rgba(21,101,192,0.25)','rgba(123,31,162,0.25)'];
+    const c1 = new Chart(document.getElementById('mChMix'), { type:'bar', data:{
+      labels: chLabels,
+      datasets: [
+        { label:'Jan Commit', data:[janC.seo,janC.int,janC.ps,janC.soc], backgroundColor:chColorsFade, borderWidth:1.5, borderColor:chColors, borderRadius:3 },
+        { label:'Jan Actual', data:[jan.seo, jan.int, jan.ps, jan.soc],  backgroundColor:chColors, borderRadius:3 },
+        { label:'Feb Commit', data:[febC.seo,febC.int,febC.ps,febC.soc], backgroundColor:chColorsFade, borderWidth:1.5, borderColor:chColors, borderRadius:3 },
+        { label:'Feb Actual', data:[feb.seo, feb.int, feb.ps, feb.soc],  backgroundColor:chColors.map(c=>c+'bb'), borderRadius:3 },
+      ]},
+      options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
+        scales:{ x:{grid:{display:false},ticks:{font:{size:10},color:'#607d9a'}},
+                 y:{grid:{color:'rgba(0,0,0,0.05)'},ticks:{font:{size:10},color:'#607d9a'}} } }
+    });
+    const c2 = new Chart(document.getElementById('mCplCpe'), { type:'line', data:{
+      labels: MSHORT,
+      datasets: [
+        { label:'Commit CPL',  data:MC26.map(m=>m.cpl), borderColor:'rgba(21,101,192,0.4)', borderDash:[4,3], borderWidth:1.5, pointRadius:0, tension:0.3, fill:false },
+        { label:'Stretch CPL', data:MS26.map(m=>m.cpl), borderColor:'rgba(123,31,162,0.4)', borderDash:[2,2], borderWidth:1.5, pointRadius:0, tension:0.3, fill:false },
+        { label:'Actual CPL',  data:[jan.cpl, feb.cpl, ...Array(10).fill(null)], borderColor:'#1565C0', borderWidth:2, pointRadius:4, tension:0.3, fill:false },
+        { label:'Commit CPE',  data:MC26.map(m=>m.cpe), borderColor:'rgba(245,124,0,0.4)', borderDash:[4,3], borderWidth:1.5, pointRadius:0, tension:0.3, fill:false, yAxisID:'y2' },
+        { label:'Stretch CPE', data:MS26.map(m=>m.cpe), borderColor:'rgba(198,40,40,0.4)', borderDash:[2,2], borderWidth:1.5, pointRadius:0, tension:0.3, fill:false, yAxisID:'y2' },
+        { label:'Actual CPE',  data:[jan.cpe, feb.cpe, ...Array(10).fill(null)], borderColor:'#f57c00', borderWidth:2, pointRadius:4, tension:0.3, fill:false, yAxisID:'y2' },
+      ]},
+      options:{ responsive:true, maintainAspectRatio:false,
+        plugins:{ legend:{ display:true, position:'bottom', labels:{font:{size:9},boxWidth:10,padding:8} } },
+        scales:{ x:{grid:{display:false},ticks:{font:{size:10},color:'#607d9a'}},
+                 y:{ grid:{color:'rgba(0,0,0,0.05)'}, ticks:{font:{size:10},color:'#607d9a',callback:v=>'$'+v}, title:{display:true,text:'CPL ($)',font:{size:9}} },
+                 y2:{ position:'right', grid:{display:false}, ticks:{font:{size:10},color:'#607d9a',callback:v=>'$'+v}, title:{display:true,text:'CPE ($)',font:{size:9}} } } }
+    });
+    const c3 = new Chart(document.getElementById('mPlanLeads'), { type:'bar', data:{
+      labels: MSHORT,
+      datasets: [
+        { label:'Commit Budget',  data:MC26.map(m=>m.leads), backgroundColor:'rgba(21,101,192,0.25)', borderColor:'#1565C0', borderWidth:1.5, borderRadius:4, type:'bar' },
+        { label:'Stretch Budget', data:MS26.map(m=>m.leads), backgroundColor:'transparent', borderColor:'#7B1FA2', borderWidth:2, borderDash:[5,3], type:'line', fill:false, tension:0.3, pointRadius:3 },
+        { label:'Actual',         data:[jan.leads, feb.leads, ...Array(10).fill(null)], backgroundColor:'#2e7d32', type:'bar', borderRadius:4 },
+      ]},
+      options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
+        scales:{ x:{grid:{display:false},ticks:{font:{size:10},color:'#607d9a'}},
+                 y:{grid:{color:'rgba(0,0,0,0.05)'},ticks:{font:{size:10},color:'#607d9a'}} } }
+    });
+    const c4 = new Chart(document.getElementById('mPlanEnroll'), { type:'bar', data:{
+      labels: MSHORT,
+      datasets: [
+        { label:'Commit Enrollments', data:MC26.map(m=>m.enrolls), backgroundColor:'rgba(21,101,192,0.25)', borderColor:'#1565C0', borderWidth:1.5, borderRadius:3, type:'bar' },
+        { label:'Actual Enrollments', data:[jan.enrolls, feb.enrolls, ...Array(10).fill(null)], backgroundColor:'#2e7d32', type:'bar', borderRadius:3 },
+        { label:'Commit Spend ($k)',  data:MC26.map(m=>m.spend/1000), borderColor:'#f57c00', backgroundColor:'transparent', borderWidth:2, type:'line', fill:false, tension:0.3, pointRadius:2, yAxisID:'y2' },
+        { label:'Actual Spend ($k)',  data:[jan.spend/1000, feb.spend/1000, ...Array(10).fill(null)], borderColor:'#bf360c', backgroundColor:'transparent', borderWidth:2, type:'line', fill:false, pointRadius:5, yAxisID:'y2' },
+      ]},
+      options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
+        scales:{ x:{grid:{display:false},ticks:{font:{size:10},color:'#607d9a'}},
+                 y:{grid:{color:'rgba(0,0,0,0.05)'},ticks:{font:{size:10},color:'#607d9a'}},
+                 y2:{position:'right',grid:{display:false},ticks:{font:{size:10},color:'#607d9a',callback:v=>'$'+v+'k'}} } }
+    });
+    charts.push(c1,c2,c3,c4);
+    return;
+  }
 
   if(view==='single'){
     const m = months[months.length-1];
@@ -806,7 +1169,7 @@ function render(){
   document.getElementById('hperiod').textContent = months.length===1 ? m : months[0]+'  →  '+m;
   buildHealthStrip(months);
   const dash = document.getElementById('dash');
-  dash.innerHTML = view==='single' ? renderSingle(months) : view==='trend' ? renderTrend(months) : renderTable(months);
+  dash.innerHTML = view==='single' ? renderSingle(months) : view==='trend' ? renderTrend(months) : view==='table' ? renderTable(months) : renderMarketing();
   requestAnimationFrame(()=>renderCharts(months));
 }
 
@@ -836,8 +1199,9 @@ function setPreset(p,btn){
 }
 function setView(v){
   view=v;
-  ['vSingle','vTrend','vTable'].forEach(id=>document.getElementById(id).classList.remove('active'));
-  document.getElementById(v==='single'?'vSingle':v==='trend'?'vTrend':'vTable').classList.add('active');
+  ['vSingle','vTrend','vTable','vMktg'].forEach(id=>{const el=document.getElementById(id);if(el)el.classList.remove('active');});
+  const idMap={single:'vSingle',trend:'vTrend',table:'vTable',mktg:'vMktg'};
+  const el=document.getElementById(idMap[v]);if(el)el.classList.add('active');
   render();
 }
 
